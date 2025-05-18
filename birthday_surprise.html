@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      overflow-x: hidden; /* Only hide horizontal overflow */
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin-bottom: 0.2em;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    p {
+      font-size: 1.5em;
+      animation: fadeIn 3s ease-in-out forwards;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background-color: #ff6f91;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff4e72;
+    }
+
+    .message {
+      display: none;
+      margin-top: 30px;
+      font-size: 2em;
+      color: #fff;
+      animation: zoomIn 1s ease forwards;
+    }
+
+    .images {
+      margin-top: 50px;
+      display: none;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .images img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .images img:hover {
+      transform: scale(1.05);
+    }
+
+    .video {
+      display: none;
+      margin-top: 40px;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .video video {
+      width: 90%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .balloon {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background-color: #acb655;
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .balloon::before {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      width: 2px;
+      height: 20px;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-120vh) translateX(20px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday Puku! 🎂</h1>
+    <p>You are so special, and the best thing that has happened to me!</p>
+    <button class="btn" onclick="showSurprise()">Open Your Surprise</button>
+
+    <div class="message" id="surpriseMessage">
+      🎁 Here's a lil surprise for you from me and our friends hehe. Love you so much, Diya misses you. Remember you are loved. 💖
+    </div>
+
+    <div class="images" id="birthdayImages">
+      <img src="img1.png" alt="Memory 1">
+      <img src="img2.png" alt="Memory 2">
+      <img src="img3.png" alt="Memory 3">
+    </div>
+
+    <div class="video" id="birthdayVideo">
+      <video controls>
+        <source src="Vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <!-- Balloons -->
+  <div class="balloon" style="left: 10%; background-color: #ff6f91;"></div>
+  <div class="balloon" style="left: 25%; background-color: #ff9671;"></div>
+  <div class="balloon" style="left: 40%; background-color: #ffc75f;"></div>
+  <div class="balloon" style="left: 60%; background-color: #f9f871;"></div>
+  <div class="balloon" style="left: 80%; background-color: #c1fba4;"></div>
+
+  <script>
+    function showSurprise() {
+      document.getElementById('surpriseMessage').style.display = 'block';
+      document.getElementById('birthdayImages').style.display = 'flex';
+      document.getElementById('birthdayVideo').style.display = 'block';
+
+      // Optional: Scroll to the message smoothly
+      document.getElementById('surpriseMessage').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>
